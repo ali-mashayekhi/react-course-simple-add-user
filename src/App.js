@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import InputForm from "./components/InputForm/InputFrom";
 import UsersList from "./components/UsersList/UsersList";
+import Modal from "./components/Modal/Modal";
 
 const storedUsers = [
   { username: "Alimasha", age: "24", id: "1321" },
@@ -18,8 +19,11 @@ function App() {
 
   return (
     <div>
-      <InputForm onAddUser={addUserHandler} />
-      <UsersList users={users} />
+      <div>
+        <InputForm onAddUser={addUserHandler} />
+        <UsersList users={users} />
+      </div>
+      <Modal />
     </div>
   );
 }

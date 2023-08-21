@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-
 import styles from "./UsersList.module.css";
 
 function UsersList(props) {
-  console.log(props.users);
   return (
     <div className={styles["users-list"]}>
       {props.users.map((user) => {

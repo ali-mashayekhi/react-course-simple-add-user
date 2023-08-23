@@ -25,7 +25,7 @@ function InputForm(props) {
         "Please enter a valid name and age (non-empty values)."
       );
 
-    if (isNaN || +age <= 0)
+    if (isNaN(age) || +age <= 0)
       return props.onInputError("Please enter a valid age (> 0).");
 
     props.onAddUser(newUser);

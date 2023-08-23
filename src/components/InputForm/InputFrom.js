@@ -8,16 +8,27 @@ function InputForm(props) {
   function submitHandler(event) {
     event.preventDefault();
 
+    const username = event.target[0].value;
+    const age = event.target[1].value;
+
     const newUser = {
-      username: event.target[0].value,
-      age: event.target[1].value,
+      username: username,
+      age: age,
       id: +Math.random(),
     };
 
-    props.onAddUser(newUser);
-
     setEnteredUsername("");
     setEnteredAge("");
+
+    if (username === "" || age === "")
+      return props.onInputError(
+        "Please enter a valid name and age (non-empty values)."
+      );
+
+    if (isNaN || +age <= 0)
+      return props.onInputError("Please enter a valid age (> 0).");
+
+    props.onAddUser(newUser);
   }
 
   function usernameChangeHandler(event) {

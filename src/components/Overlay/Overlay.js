@@ -8,7 +8,7 @@ function Overlay(props) {
         props.isHidden && styles["hide-overlay"]
       }`}
     >
-      {props.child}
+      {props.children}
     </div>
   );
 }

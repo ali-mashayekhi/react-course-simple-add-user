@@ -1,4 +1,5 @@
 import styles from "./Modal.module.css";
+import Button from "../UI/Button";
 
 function Modal(props) {
   return (
@@ -8,9 +9,7 @@ function Modal(props) {
       <h2 className={styles["modal__header"]}>Invalid Input</h2>
       <div className={styles["modal__body"]}>
         <div className={styles["modal__message"]}>{props.errorMessage}</div>
-        <button className={styles["modal__btn"]} onClick={props.onCloseClick}>
-          Okay
-        </button>
+        <Button onClick={props.onCloseClick}>Okay</Button>
       </div>
     </div>
   );

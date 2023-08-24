@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./InputForm.module.css";
+import Button from "../UI/Button";
 
 function InputForm(props) {
   const [enteredUsername, setEnteredUsername] = useState("");
@@ -55,7 +56,7 @@ function InputForm(props) {
         value={enteredAge}
         onChange={ageChangeHandler}
       />
-      <button>Add User</button>
+      <Button>Add User</Button>
     </form>
   );
 }

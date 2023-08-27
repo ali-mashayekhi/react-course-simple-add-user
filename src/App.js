@@ -4,8 +4,7 @@ import styles from "./App.module.css";
 
 import InputForm from "./components/InputForm/InputFrom";
 import UsersList from "./components/UsersList/UsersList";
-import Modal from "./components/Modal/Modal";
-import Overlay from "./components/Overlay/Overlay";
+import Modal from "./components/UI/Modal";
 
 const storedUsers = [
   { username: "Alimasha", age: "24", id: "1321" },
@@ -14,39 +13,35 @@ const storedUsers = [
 
 function App() {
   const [users, setUsers] = useState(storedUsers);
-  const [hideError, setHideError] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [error, setError] = useState(false);
 
   function addUserHandler(userData) {
-    setUsers((previousState) => [userData, ...previousState]);
+    setUsers((previousState) => [...previousState, userData]);
     storedUsers.unshift(userData);
   }
 
   function showInputErrorHandler(errorMessage) {
-    setErrorMessage(errorMessage);
-    setHideError(false);
+    setError(errorMessage);
   }
 
   function hideInputErrorHandler() {
-    setErrorMessage("");
-    setHideError(true);
+    setError(false);
   }
 
   return (
-    <div>
-      <div className={styles.container}>
-        <InputForm
-          onAddUser={addUserHandler}
-          onInputError={showInputErrorHandler}
-        />
-        <UsersList users={users} />
-      </div>
-      <Modal
-        isHidden={hideError}
-        errorMessage={errorMessage}
-        onCloseClick={hideInputErrorHandler}
+    <div className={styles.container}>
+      <InputForm
+        onAddUser={addUserHandler}
+        onInputError={showInputErrorHandler}
       />
-      <Overlay isHidden={hideError} onCloseClick={hideInputErrorHandler} />
+      <UsersList users={users} />
+      {error && (
+        <Modal
+          title={error.title}
+          errorMessage={error.message}
+          onCloseClick={hideInputErrorHandler}
+        />
+      )}
     </div>
   );
 }

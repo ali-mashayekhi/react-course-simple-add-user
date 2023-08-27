@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  /* margin: 0; */
 }
 
 html {
@@ -8,5 +9,6 @@ html {
 
 body {
   margin: 0;
-  background-color: #232323;
+  background-color: #1f1f1f;
+  position: relative;
 }

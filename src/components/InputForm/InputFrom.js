@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import styles from "./InputForm.module.css";
 import Button from "../UI/Button";
 import Card from "../UI/Card";

@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from "react";
-// import ReactDOM from "react-dom";
+import { useState } from "react";
 
 import styles from "./App.module.css";
 

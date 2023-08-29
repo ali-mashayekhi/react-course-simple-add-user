@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { Fragment, useState } from "react";
+// import ReactDOM from "react-dom";
 
 import styles from "./App.module.css";
 
@@ -40,7 +41,7 @@ function App() {
           title={error.title}
           errorMessage={error.message}
           onCloseClick={hideInputErrorHandler}
-        />
+        ></Modal>
       )}
     </div>
   );
